@@ -14,7 +14,7 @@ done
 echo "The factorial of $n is $fact"
 
 ---------------------------------------------------
-#!/usr/bin/bash
+#!/bin/bash
 
 echo "Enter a number:"
 read n

@@ -22,7 +22,8 @@ fi
 -----------------------------------------------------------------------
 #!/usr/bin/bash
 
-read -p "Enter the directory name: " dir
+echo "Enter the directory name: " 
+read dir
 
 if [ -d "$dir" ]; then
     echo "Checking files in '$dir'..."
