@@ -1,0 +1,25 @@
+// DC motor interfacing (without PWM)
+#include&lt;lpc214x.h&gt;
+void delay(unsigned int time)
+{unsigned int i;
+unsigned int j;
+for(i=0;i&lt;time;i++)
+{for(j=0;j&lt;6000;j++);
+}
+}
+int main()
+{
+IODIR0 |= 0x00000901;
+while(1)
+{
+IOSET0 = 0x00000101;
+
+delay(5000);
+IOCLR0 = 0x00000901;
+delay(5000);
+IOSET0 = 0x00000801;
+delay(5000);
+IOCLR0 = 0x00000901;
+delay(5000);
+}
+}

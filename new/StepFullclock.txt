@@ -1,0 +1,35 @@
+Full step rotation (clock wise)
+/*
+Stepper motor interfacing with LPC2148(ARM7)
+
+*/
+#include &lt;lpc214x.h&gt;
+#include &lt;stdint.h&gt;
+void delay_ms(uint16_t j)
+{
+uint16_t x,i;
+for(i=0;i&lt;j;i++)
+{
+for(x=0; x&lt;6000; x++); /* loop to generate 1 milisecond delay with Cclk
+= 60MHz */
+}
+}
+int main (void)
+{
+PINSEL0=0x00000000;
+IO0DIR = (IO0DIR | 0x0000000F); /* Configure P0.0-P0.3 as output(used
+for controlling stepper motor) */
+while(1)
+{
+
+IO0PIN = ( (IO0PIN | 0x00000001) &amp; 0xFFFFFFF1 );
+delay_ms(100);
+IO0PIN = ( (IO0PIN | 0x00000002) &amp; 0xFFFFFFF2 );
+delay_ms(100);
+IO0PIN = ( (IO0PIN | 0x00000004) &amp; 0xFFFFFFF4 );
+delay_ms(100);
+IO0PIN = ( (IO0PIN | 0x00000008) &amp; 0xFFFFFFF8 );
+delay_ms(100);
+
+}
+}
