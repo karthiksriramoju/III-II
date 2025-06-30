@@ -27,5 +27,4 @@ int main() {
     vector<int> f = {34,8,50};
     int n = f.size();
     printf("Cost of Optimal BST is %d\n", optCost(f ,0, n - 1));
-
 }
